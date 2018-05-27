@@ -1,5 +1,7 @@
 # SNP_MachineLearning_DeepLearning
 
 ```
-print 
+
+if x==y:
+  print 
 ```
