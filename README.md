@@ -23,3 +23,5 @@ Alipanahi B, Delong A, Weirauch M T, et al. [Predicting the sequence specificiti
 3. **1 Rectification Layer:** to isolate positions with a good pattern match by shifting the response of detector
 
 4. **1 Pooling Layer:** computes the maximum and average of each motif detector’s rectified response across the sequence
+
+![image](./pictures/05-30-DeepBind-1.png)
