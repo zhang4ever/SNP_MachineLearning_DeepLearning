@@ -1,5 +1,3 @@
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 ## 2018-05-30 DeepBind: Deep ConvNets
 
 Alipanahi B, Delong A, Weirauch M T, et al. [Predicting the sequence specificities of DNA- and RNA-binding proteins by deep learning](https://www.nature.com/articles/nbt.3300 "Predicting the sequence specificities of DNA- and RNA-binding proteins by deep learning")[J]. Nature Biotechnology, 2015, 33(8):831.
@@ -66,11 +64,8 @@ sites
 - **Dense layer:**rectified linear units
 - **Output layer:** muti-task sigmoid
 
-<div align=center>
 ![image](./pictures/06-04-DanQ-1.png)
-</div>
 
-<div align=left>
 #### Model details
 - **Initialization:**All weights are initialized by randomly from (-0.05, 0.05), and all biases are initially set to 0.
 - **Optimization：****RMSprop** algorithm with a minibatch size of 100; **Cost function**: averagemulti-task binary cross entropy loss function
