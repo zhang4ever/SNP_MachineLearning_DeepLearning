@@ -22,8 +22,7 @@ Alipanahi B, Delong A, Weirauch M T, et al. [Predicting the sequence specificiti
 
 4. **1 Pooling Layer:** computes the maximum and average of each motif detector’s rectified response across the sequence
 
-
-![image](./pictures/05-30-DeepBind-1.png)
+<div align=center><img src="./pictures/05-30-DeepBind-1.png"/></div>
 
 #### Model Details
 
@@ -54,7 +53,6 @@ sites
 - **Output layer:** muti-task sigmoid
 
 <div align=center><img src="./pictures/06-04-DanQ-1.png"/></div>
-![image](./pictures/06-04-DanQ-1.png)
 
 #### Model details
 - **Initialization:** All weights are initialized by randomly from (-0.05, 0.05), and all biases are initially set to 0.
