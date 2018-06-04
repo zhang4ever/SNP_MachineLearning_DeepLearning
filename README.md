@@ -66,6 +66,7 @@ sites
 
 <div align=center>
 ![image](./pictures/06-04-DanQ-1.png)
+</div>
 
 <div align=left>
 #### Model details
