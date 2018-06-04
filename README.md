@@ -30,17 +30,6 @@ Alipanahi B, Delong A, Weirauch M T, et al. [Predicting the sequence specificiti
 - Feed-forward(predictions): 
   - a) Convolution:convert sequence s to `(n=2m-2)*4` array S and output an `(n+m-1)*d` array X
   - b) They also tried to y is to initialize kernels from known motifs
-- Validation loss(cross-entropy, classification) is evaluated at the end of each training epoch to monitor convergence 
-- Dropout is implemented
-- Logistic regression Model is trained for benchmark purposes
-- **Training Time**: for 320 convolution, 60 epochs, while each takes ~6h.
-
-#### Comments
-
-- They use **Precision-Recall AUC**, because given the sparsity of positive binary targets (∼2%), the ROC AUC statistic is highly inﬂated by the class imbalance, while PR AUC is less prone to inﬂation by the class imbalance than ROC AUC. This is a fact overlooked in the original DeepSEA paper. 
-
-
-- DanQ is often compared with DeepSEA, they share datasets, and there are comparison results in DanQ paper.
 
 
 ----------
