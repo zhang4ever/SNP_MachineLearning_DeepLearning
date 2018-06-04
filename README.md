@@ -53,6 +53,7 @@ sites
 - **Dense layer:**rectified linear units
 - **Output layer:** muti-task sigmoid
 
+<div align=center><img src="./pictures/06-04-DanQ-1.png"/></div>
 ![image](./pictures/06-04-DanQ-1.png)
 
 #### Model details
