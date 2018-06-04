@@ -67,10 +67,10 @@ sites
 ![image](./pictures/06-04-DanQ-1.png)
 
 #### Model details
-- **Initialization:**All weights are initialized by randomly from (-0.05, 0.05), and all biases are initially set to 0.
-- **Optimization：****RMSprop** algorithm with a minibatch size of 100; **Cost function**: averagemulti-task binary cross entropy loss function
-- **Implementation：**Keras 0.2.0 library with the Theano 0.7.1 (21,22) backend with NVIDIA Titan Z GPU.
-- **Evaluation:**ROC AUC curve; Precision-Recall cureve(P-R curve); PR-AUC scatter.(*PR AUC is less prone to inflation by the class imbalance than ROC AUC*)
+- **Initialization:** All weights are initialized by randomly from (-0.05, 0.05), and all biases are initially set to 0.
+- **Optimization：** **RMSprop** algorithm with a minibatch size of 100; **Cost function**: averagemulti-task binary cross entropy loss function
+- **Implementation：** Keras 0.2.0 library with the Theano 0.7.1 (21,22) backend with NVIDIA Titan Z GPU.
+- **Evaluation:** ROC AUC curve; Precision-Recall cureve(P-R curve); PR-AUC scatter.(*PR AUC is less prone to inflation by the class imbalance than ROC AUC*)
 
 
 #### Results
