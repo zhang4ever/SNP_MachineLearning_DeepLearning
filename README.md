@@ -70,3 +70,52 @@ sites
 sequences of arbitrary length, and also may explore the long-range consequences in linkage disequilibrium
 - More data
 - update and improve the DanQ model(kernels, weights initialization, hyperparameter tuning algorithms).
+
+---
+
+## 2018-06-05 DeepCpG:
+Angermueller C, Lee H J, Reik W, et al. [DeepCpG: accurate prediction of single-cell DNA methylation states using deep learning](https://link.springer.com/article/10.1186/s13059-017-1189-z)[J]. Genome Biology, 2017, 18(1):67.
+
+### Source code
+[https://github.com/cangermueller/deepcpg](https://github.com/cangermueller/deepcpg)
+
+### Introduction
+- DNA methylation is one of the most extensively studied epigenetic marks.
+- Recent technological advances for DNA methylation: scBS-seq, scRRBS have uncovered new **linkages** between epigenetic and transcriptional heterogeneity.
+- **Existing methods:** do not account for cell-to-cell variability; require a priori defined features and genome annotations.
+- **DeepCpG:** predicting single-cell methylation states and for modelling
+the sources of DNA methylation heterogeneity; does not
+separate the extraction of DNA sequence features and model training
+
+### Model layers
+- **Sparse single-cell CpG profiles**
+- **CpG module** Convolutional filters + Pooling: identifies patters in the CpG neighbourhood across multiple cells
+- **DNA module** Convolutional filters + Pooling + ReLU : identify predictive sequence
+motifs.
+- **Fusion module** Learns cell-specific interactions between higher-level features from CpG module and DNA module.
+
+<div align=center><img src="./pictures/06-05-DeepCpG-1.png"/></div>
+
+### Model details
+- **Convolution layer:** activation function `a` and pooling function `p` as follows
+
+	 <a href="https://www.codecogs.com/eqnedit.php?latex=a_{nfi}=ReLU\left&space;(&space;\sum_{l=1}^{L}\sum_{d=1}^{D}w_{fld}s_{n,i&plus;l,d}&space;\right&space;),p_{nfi}=max_{\left&space;|&space;k&space;\right&space;|<{p/2}}\left&space;(a_{nf,i&plus;k}\right&space;)" target="_blank"><img src="https://latex.codecogs.com/png.latex?a_{nfi}=ReLU\left&space;(&space;\sum_{l=1}^{L}\sum_{d=1}^{D}w_{fld}s_{n,i&plus;l,d}&space;\right&space;),p_{nfi}=max_{\left&space;|&space;k&space;\right&space;|<{p/2}}\left&space;(a_{nf,i&plus;k}\right&space;)" title="a_{nfi}=ReLU\left ( \sum_{l=1}^{L}\sum_{d=1}^{D}w_{fld}s_{n,i+l,d} \right ),p_{nfi}=max_{\left | k \right |<{p/2}}\left (a_{nf,i+k}\right )" /></a>
+ 
+- **Output layer:** activation function
+
+	<img src="https://latex.codecogs.com/png.latex?\hat{y}_{nt}(x)=sigmiod(x)=\frac{1}{1&plus;e^{-x}}" title="\hat{y}_{nt}(x)=sigmiod(x)=\frac{1}{1+e^{-x}}" />
+- **cost funtion:** mini-batch:`SGD-Adam`, `learning_rate=0.5`,
+	
+	<img src="https://latex.codecogs.com/png.latex?L(w)=-\sum_{n=1}^{N}\sum_{t=1}^{T}o_{nt}\left&space;[&space;y_{nt}log(\hat{y}_{nt})&plus;(1-\hat{y}_{nt})log(1-\hat{y}_{nt})&space;\right&space;]&plus;\lambda&space;_{1}\left&space;\|&space;w&space;\right&space;\|_1&plus;\lambda_2&space;\left&space;\|&space;w&space;\right&space;\|_2"  />
+### Experiments
+1. **DeepCpG accurately predicts single-cell methylation states**
+	- **Figuration:** `object`: 32 mouse embryonic stem cells(20 serum-cultured, 12 2i-cultured); `train_test`:holdout validation; `evaluation`：AUC, PR curve; 
+	
+2. **Analysis the effect of DNA sequence features on DNA methylation**
+3. **Discovery of DNA sequence motifs that are associated with
+epigenetic variability**
+
+### Advantages
+- Its convolutional architecture: allows for discovering predictive motifs in larger DNA sequence contexts, as well as for capturing complex methylation
+patterns in neighbouring CpG sites.
+- DeepCpG learns higherlevel annotations from the DNA sequence
